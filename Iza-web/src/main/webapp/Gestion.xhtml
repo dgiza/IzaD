@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+            .cars-datalist .text-column p:last-child{
+                color:#757575;
+            }
+
+            .cars-datalist .car-item i,
+            .cars-datalist .car-item .car-details {
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+                height: auto;
+            }
+
+            .cars-datalist .car-item .car-details {
+                padding-top: .5em;
+            }
+
+            .cars-datalist .car-item button {
+                float: right;
+            }
+
+            .cars-datalist ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .ui-car-display td:last-child {
+                font-weight: 700;
+            }
+
+            @media (max-width:640px) {
+                .cars-datalist .text-column {
+                    text-align: center;
+                }
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="title">Gestion de Módulos</ui:define>
+
+
+    <ui:define name="content">
+
+
+
+        <h:form id="form">
+            <p:dataTable id="TablaModulos" var="modulo" value="#{moduloBean.modulos}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{modulo.codigo}" />
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{modulo.nombre}" />
+                </p:column>
+
+                <p:column headerText="Estado">
+                    <h:outputText value="#{modulo.estado}" />
+                </p:column>
+
+               
+            </p:dataTable>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
